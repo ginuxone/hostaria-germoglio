@@ -16,7 +16,7 @@ export default function PageLoader() {
   }
 
   return (
-    <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-slate-950/55 backdrop-blur-3xl">
+    <div className="fixed inset-0 z-1000 flex items-center justify-center bg-slate-950/55 backdrop-blur-3xl">
       <div className="relative h-24 w-24 animate-loader-fade">
         <Image src="/logo.svg" alt="Hostaria Germoglio" fill className="object-contain" />
       </div>
