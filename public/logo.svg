@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <style>
+    .bg { fill: #ffffff; }
+    .brand-dark { fill: #000000; }
+    .line { stroke: #000000; stroke-width: 3; stroke-linecap: round; }
+    .text-main { font-family: 'Century Gothic', 'Futura', sans-serif; font-size: 46px; fill: #000000; letter-spacing: 1px; }
+    .text-sub { font-family: 'Century Gothic', 'Futura', sans-serif; font-size: 22px; fill: #000000; letter-spacing: 2px; font-weight: 300; }
+  </style>
+
+  <rect width="600" height="600" class="bg" />
+
+  <g transform="translate(0, 50)">
+    <rect x="284" y="210" width="8" height="70" rx="4" class="brand-dark" />
+    
+    <path d="M 265 272 C 235 272, 195 245, 195 225 C 195 215, 220 225, 255 248 C 265 255, 268 265, 265 272 Z" class="brand-dark" />
+    
+    <path d="M 311 272 C 341 272, 381 245, 381 225 C 381 215, 356 225, 321 248 C 311 255, 308 265, 311 272 Z" class="brand-dark" />
+    
+    <path d="M 288 113 L 316 145 C 305 165, 310 205, 288 225 L 288 113 Z" class="brand-dark" />
+    <path d="M 288 113 L 260 145 C 271 165, 266 205, 288 225 L 288 113 Z" opacity="0.9" class="brand-dark" />
+    
+    <path d="M 282 225 C 255 225, 235 190, 235 160 C 215 140, 215 140, 215 140 C 235 155, 255 135, 274 155 C 285 166, 285 200, 282 225 Z" class="brand-dark" />
+    
+    <path d="M 294 225 C 321 225, 341 190, 341 160 C 361 140, 361 140, 361 140 C 341 155, 321 135, 302 155 C 291 166, 291 200, 294 225 Z" class="brand-dark" />
+
+    <line x1="72" y1="305" x2="528" y2="305" class="line" />
+    <line x1="72" y1="367" x2="528" y2="367" class="line" />
+
+    <text x="300" y="350" text-anchor="middle" class="text-main">Hostaria Germoglio</text>
+
+    <text x="300" y="408" text-anchor="middle" class="text-sub">Ristorante - Pizzeria</text>
+  </g>
+</svg>
