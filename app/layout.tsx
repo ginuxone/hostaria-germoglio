@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 import Footer from "./components/Footer";
 import PageLoader from "./components/PageLoader";
@@ -19,14 +20,17 @@ export const metadata: Metadata = {
   description: "Ristorante italiano a Verdello con cucina tradizionale e atmosfera famigliare.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const lang = headersList.get("x-locale") ?? "it";
+
   return (
     <html
-      lang="it"
+      lang={lang}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[#f8f4ef] text-slate-900">

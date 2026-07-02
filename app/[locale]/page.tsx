@@ -70,7 +70,9 @@ export default async function HomePage({ params }: LocalePageProps) {
           <article className="rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/40">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.nav.contact}</p>
             <p className="mt-4 text-lg font-semibold text-slate-900">{t.contact.address}</p>
-            <p className="mt-2 text-slate-600">{t.contact.phone}</p>
+            <a href="tel:+393716956239" className="mt-2 block text-slate-600 transition hover:text-slate-900">
+              {t.contact.phone}
+            </a>
           </article>
           <article className="rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/40">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.nav.staff}</p>

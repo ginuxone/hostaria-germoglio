@@ -22,7 +22,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-2rem bg-white p-8 shadow-lg shadow-slate-200/50">
+          <div className="rounded-[2rem] bg-white p-8 shadow-lg shadow-slate-200/50">
             <div className="space-y-6">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.addressLabel}</p>
@@ -30,7 +30,9 @@ export default async function ContactPage({ params }: ContactPageProps) {
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Phone</p>
-                <p className="mt-3 text-lg text-slate-700">{t.contact.phone}</p>
+                <a href="tel:+393716956239" className="mt-3 block text-lg text-slate-700 transition hover:text-slate-900">
+                  {t.contact.phone}
+                </a>
               </div>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Hours</p>
@@ -40,7 +42,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-2rem bg-white p-6 shadow-lg shadow-slate-200/50">
+            <div className="rounded-[2rem] bg-white p-6 shadow-lg shadow-slate-200/50">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.mapTitle}</p>
               <div className="mt-5 overflow-hidden rounded-3xl border border-slate-200">
                 <iframe
