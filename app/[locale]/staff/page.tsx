@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navigation from "../../components/Navigation";
 import { getLocale, translations } from "../../../lib/translations";
 
@@ -21,12 +22,26 @@ export default async function StaffPage({ params }: StaffPageProps) {
           <p className="max-w-3xl mx-auto text-slate-700">{t.staff.intro}</p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {t.staff.members.map((member) => (
-            <article key={member.name} className="rounded-[2rem] bg-white p-8 shadow-lg shadow-slate-200/50">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-700">{member.role}</p>
-              <h2 className="mt-4 text-2xl font-semibold text-slate-900">{member.name}</h2>
-              <p className="mt-3 text-slate-600">{member.bio}</p>
+            <article
+              key={member.name}
+              className="overflow-hidden rounded-[2rem] bg-white shadow-lg shadow-slate-200/50"
+            >
+              <div className="relative aspect-[3/4] w-full">
+                <Image
+                  src={member.photo}
+                  alt={member.name}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                />
+              </div>
+              <div className="p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-700">{member.role}</p>
+                <h2 className="mt-2 text-2xl font-semibold text-slate-900">{member.name}</h2>
+                <p className="mt-3 text-slate-600">{member.bio}</p>
+              </div>
             </article>
           ))}
         </div>

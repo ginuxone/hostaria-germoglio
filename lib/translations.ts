@@ -22,7 +22,7 @@ export const translations: Record<Locale, {
   about: { heading: string; description: string };
   specialties: { heading: string; items: string[] };
   menu: { heading: string; sections: { title: string; items: { name: string; description: string; price: string }[] }[] };
-  staff: { heading: string; intro: string; members: { name: string; role: string; bio: string }[] };
+  staff: { heading: string; intro: string; members: { name: string; role: string; bio: string; photo: string }[] };
   contact: {
     heading: string;
     description: string;
@@ -47,11 +47,11 @@ export const translations: Record<Locale, {
     },
     about: {
       heading: "Benvenuti a Hostaria Germoglio",
-      description: "A Verdello, la nostra cucina celebra le ricette tradizionali con un tocco contemporaneo. Dalla pasta fatta in casa ai dessert artigianali, ogni piatto è pensato per farti sentire a casa.",
+      description: "Nata nel 2012 con la cucina tipica bergamasca e le nostre pizze napoletane, dal 2019 l'Hostaria è gestita da una famiglia italo-peruviana che ha arricchito il menu con i sapori del Perù. Vi accogliamo in un'atmosfera calda e familiare, circondati da una trattoria dove è possibile visitare gli animali.",
     },
     specialties: {
       heading: "Specialità della casa",
-      items: ["Risotto ai funghi porcini", "Tagliolini al tartufo", "Baccalà mantecato", "Tiramisù della casa"],
+      items: ["Risotto ai funghi porcini", "Casoncelli del Germoglio", "Lomo Saltado", "Tiramisù della casa"],
     },
     menu: {
       heading: "Il nostro menu",
@@ -66,15 +66,17 @@ export const translations: Record<Locale, {
         {
           title: "Primi",
           items: [
-            { name: "Tagliolini al tartufo", description: "Pasta fresca con salsa cremosa al tartufo nero.", price: "€18" },
+            { name: "Casoncelli del Germoglio", description: "Pasta ripiena bergamasca fatta in casa, servita con burro fuso, salvia e pancetta croccante.", price: "€18" },
             { name: "Risotto ai funghi", description: "Risotto cremoso con funghi porcini e parmigiano.", price: "€17" },
           ],
         },
         {
           title: "Secondi",
           items: [
-            { name: "Baccalà mantecato", description: "Baccalà tradizionale con crostini caldi.", price: "€16" },
-            { name: "Scaloppine al limone", description: "Scaloppine di vitello con salsa al limone.", price: "€19" },
+            { name: "Lomo Saltado", description: "Straccetti di manzo saltati al wok con cipolla rossa, pomodoro e coriandolo, serviti con riso e patatine fritte.", price: "€19" },
+            { name: "Ají de Gallina", description: "Pollo sfilacciato in una cremosa salsa di aji amarillo e noci, gratinato al parmigiano, con riso e patate.", price: "€17" },
+            { name: "Causa Rellena", description: "Rotolo di patata gialla peruviana ripieno, guarnito con olive e maionese al lime.", price: "€14" },
+            { name: "Arroz con Mariscos", description: "Riso allo zafferano con gamberi, cozze e vongole, profumato al coriandolo.", price: "€22" },
           ],
         },
         {
@@ -88,11 +90,12 @@ export const translations: Record<Locale, {
     },
     staff: {
       heading: "Il nostro team",
-      intro: "Un gruppo appassionato di chef, camerieri e sommelier che lavora insieme per rendere ogni serata speciale.",
+      intro: "La famiglia italo-peruviana e il team che rendono ogni serata all'Hostaria Germoglio speciale.",
       members: [
-        { name: "Luca", role: "Chef", bio: "Creatore del menu stagionale e maestro della pasta fresca." },
-        { name: "Sara", role: "Responsabile sala", bio: "Accoglie gli ospiti con calore e cura ogni dettaglio del servizio." },
-        { name: "Marco", role: "Sommelier", bio: "Seleziona vini italiani per accompagnare ogni piatto." },
+        { name: "Zoila", role: "Chef e Titolare", bio: "Guida la cucina dell'Hostaria portando in tavola i sapori del suo Perù natale insieme alla tradizione italiana della casa.", photo: "/images/staff-zoila.jpg" },
+        { name: "Jorge", role: "PR e Barman", bio: "Accoglie ogni ospite con il sorriso e cura la sala e il bar, rendendo ogni serata un'esperienza calorosa.", photo: "/images/staff-jorge.jpg" },
+        { name: "Renato", role: "Cameriere", bio: "Segue i tavoli con attenzione e precisione, sempre pronto a consigliare i piatti del giorno.", photo: "/images/staff-renato.jpg" },
+        { name: "Martina", role: "Cameriera", bio: "Con energia ed entusiasmo, si assicura che ogni ospite si senta a casa dal primo all'ultimo piatto.", photo: "/images/staff-martina.jpg" },
       ],
     },
     contact: {
@@ -127,11 +130,11 @@ export const translations: Record<Locale, {
     },
     about: {
       heading: "Bienvenidos a Hostaria Germoglio",
-      description: "En Verdello, nuestra cocina celebra recetas tradicionales con un toque contemporáneo. Desde pasta casera hasta postres artesanales, cada plato te hará sentir como en casa.",
+      description: "Fundada en 2012 con la cocina típica de Bérgamo y nuestras pizzas napolitanas, desde 2019 la Hostaria está gestionada por una familia ítalo-peruana que ha enriquecido el menú con los sabores de Perú. Te recibimos en un ambiente cálido y familiar, rodeado de una trattoria donde se pueden visitar los animales.",
     },
     specialties: {
       heading: "Especialidades de la casa",
-      items: ["Risotto con setas porcini", "Tagliolini con trufa", "Bacalao encebollado", "Tiramisú de la casa"],
+      items: ["Risotto con setas porcini", "Casoncelli del Germoglio", "Lomo Saltado", "Tiramisú de la casa"],
     },
     menu: {
       heading: "Nuestro menú",
@@ -146,15 +149,17 @@ export const translations: Record<Locale, {
         {
           title: "Primeros",
           items: [
-            { name: "Tagliolini con trufa", description: "Pasta fresca con salsa cremosa de trufa negra.", price: "€18" },
+            { name: "Casoncelli del Germoglio", description: "Pasta rellena bergamasca casera, servida con mantequilla fundida, salvia y panceta crujiente.", price: "€18" },
             { name: "Risotto con setas", description: "Risotto cremoso con setas porcini y parmesano.", price: "€17" },
           ],
         },
         {
           title: "Segundos",
           items: [
-            { name: "Bacalao encebollado", description: "Bacalao tradicional con tostadas calientes.", price: "€16" },
-            { name: "Escalopes al limón", description: "Escalopes de ternera con salsa de limón.", price: "€19" },
+            { name: "Lomo Saltado", description: "Tiras de lomo salteadas al wok con cebolla roja, tomate y cilantro, servidas con arroz y papas fritas.", price: "€19" },
+            { name: "Ají de Gallina", description: "Pollo deshilachado en una cremosa salsa de ají amarillo y nueces, gratinado con parmesano, con arroz y papas.", price: "€17" },
+            { name: "Causa Rellena", description: "Rollo de papa amarilla peruana relleno, decorado con aceitunas y mayonesa de lima.", price: "€14" },
+            { name: "Arroz con Mariscos", description: "Arroz al azafrán con langostinos, mejillones y almejas, perfumado con cilantro.", price: "€22" },
           ],
         },
         {
@@ -168,11 +173,11 @@ export const translations: Record<Locale, {
     },
     staff: {
       heading: "Nuestro equipo",
-      intro: "Un grupo apasionado de chefs, camareros y sommeliers que trabaja junto para hacer especial cada velada.",
+      intro: "La familia ítalo-peruana y el equipo que hacen especial cada velada en la Hostaria Germoglio.",
       members: [
-        { name: "Luca", role: "Chef", bio: "Creador del menú de temporada y maestro de la pasta fresca." },
-        { name: "Sara", role: "Jefa de sala", bio: "Recibe a los huéspedes con calidez y cuida cada detalle del servicio." },
-        { name: "Marco", role: "Sommelier", bio: "Selecciona vinos italianos para acompañar cada plato." },
+        { name: "Zoila", role: "Chef y Propietaria", bio: "Dirige la cocina de la Hostaria llevando a la mesa los sabores de su Perú natal junto con la tradición italiana de la casa.", photo: "/images/staff-zoila.jpg" },
+        { name: "Jorge", role: "RRPP y Barman", bio: "Recibe a cada huésped con una sonrisa y cuida la sala y la barra, haciendo de cada noche una experiencia cálida.", photo: "/images/staff-jorge.jpg" },
+        { name: "Renato", role: "Camarero", bio: "Atiende las mesas con atención y precisión, siempre listo para recomendar los platos del día.", photo: "/images/staff-renato.jpg" },
       ],
     },
     contact: {
@@ -207,11 +212,11 @@ export const translations: Record<Locale, {
     },
     about: {
       heading: "Welcome to Hostaria Germoglio",
-      description: "In Verdello, our kitchen celebrates traditional recipes with a contemporary touch. From homemade pasta to artisanal desserts, every dish is designed to make you feel at home.",
+      description: "Founded in 2012 with traditional Bergamo cuisine and our Neapolitan-style pizzas, since 2019 the Hostaria has been run by an Italian-Peruvian family who enriched the menu with the flavors of Peru. We welcome you in a warm, family atmosphere, surrounded by a farmhouse trattoria where you can visit the animals.",
     },
     specialties: {
       heading: "House specialties",
-      items: ["Porcini mushroom risotto", "Truffle tagliolini", "Crema di baccalà", "House tiramisu"],
+      items: ["Porcini mushroom risotto", "Casoncelli del Germoglio", "Lomo Saltado", "House tiramisu"],
     },
     menu: {
       heading: "Our menu",
@@ -226,15 +231,17 @@ export const translations: Record<Locale, {
         {
           title: "Pasta",
           items: [
-            { name: "Truffle tagliolini", description: "Fresh pasta with creamy black truffle sauce.", price: "€18" },
+            { name: "Casoncelli del Germoglio", description: "Homemade Bergamo-style stuffed pasta, served with melted butter, sage and crispy pancetta.", price: "€18" },
             { name: "Mushroom risotto", description: "Creamy risotto with porcini mushrooms and Parmesan.", price: "€17" },
           ],
         },
         {
           title: "Mains",
           items: [
-            { name: "Crema di baccalà", description: "Traditional cod with warm crostini.", price: "€16" },
-            { name: "Veal scaloppine", description: "Veal scaloppine with lemon sauce.", price: "€19" },
+            { name: "Lomo Saltado", description: "Stir-fried beef strips with red onion, tomato and cilantro, served with rice and fries.", price: "€19" },
+            { name: "Ají de Gallina", description: "Shredded chicken in a creamy ají amarillo and walnut sauce, topped with Parmesan, served with rice and potatoes.", price: "€17" },
+            { name: "Causa Rellena", description: "Peruvian yellow potato roll, filled and topped with olives and lime mayonnaise.", price: "€14" },
+            { name: "Arroz con Mariscos", description: "Saffron rice with prawns, mussels and clams, finished with cilantro.", price: "€22" },
           ],
         },
         {
@@ -248,11 +255,12 @@ export const translations: Record<Locale, {
     },
     staff: {
       heading: "Our team",
-      intro: "A passionate group of chefs, servers and sommeliers working together to make every evening special.",
+      intro: "The Italian-Peruvian family and team who make every evening at Hostaria Germoglio special.",
       members: [
-        { name: "Luca", role: "Chef", bio: "Creator of the seasonal menu and fresh pasta master." },
-        { name: "Sara", role: "Front of house manager", bio: "Welcomes guests warmly and attends to every service detail." },
-        { name: "Marco", role: "Sommelier", bio: "Selects Italian wines to pair with every dish." },
+        { name: "Zoila", role: "Head Chef & Owner", bio: "Leads the kitchen, bringing the flavors of her native Peru to the table alongside the house's Italian tradition.", photo: "/images/staff-zoila.jpg" },
+        { name: "Jorge", role: "PR & Barman", bio: "Greets every guest with a smile and looks after the dining room and bar, making each evening feel warm and welcoming.", photo: "/images/staff-jorge.jpg" },
+        { name: "Renato", role: "Waiter", bio: "Attends to tables with care and precision, always ready to recommend the dishes of the day.", photo: "/images/staff-renato.jpg" },
+        { name: "Martina", role: "Waiter", bio: "With energy and enthusiasm, she makes sure every guest feels at home from the first course to the last.", photo: "/images/staff-martina.jpg" },
       ],
     },
     contact: {
