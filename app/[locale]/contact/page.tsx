@@ -22,22 +22,38 @@ export default async function ContactPage({ params }: ContactPageProps) {
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="rounded-[2rem] bg-white p-8 shadow-lg shadow-slate-200/50">
-            <div className="space-y-6">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.addressLabel}</p>
-                <p className="mt-3 text-2xl font-semibold text-slate-900">{t.contact.address}</p>
+          <div className="space-y-6">
+            <div className="rounded-[2rem] bg-white p-8 shadow-lg shadow-slate-200/50">
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.addressLabel}</p>
+                  <p className="mt-3 text-2xl font-semibold text-slate-900">{t.contact.address}</p>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.phoneLabel}</p>
+                  <a href="tel:+393716956239" className="mt-3 block text-lg text-slate-700 transition hover:text-slate-900">
+                    {t.contact.phone}
+                  </a>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Phone</p>
-                <a href="tel:+393716956239" className="mt-3 block text-lg text-slate-700 transition hover:text-slate-900">
-                  {t.contact.phone}
-                </a>
-              </div>
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Hours</p>
-                <p className="mt-3 text-lg text-slate-700">{t.contact.hours}</p>
-              </div>
+            </div>
+
+            <div className="rounded-[2rem] bg-white p-8 shadow-lg shadow-slate-200/50">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.hoursLabel}</p>
+              <dl className="mt-4 divide-y divide-slate-100">
+                {t.contact.hours.map((entry) => (
+                  <div key={entry.day} className="flex items-baseline justify-between gap-4 py-2 first:pt-0 last:pb-0">
+                    <dt className="font-semibold text-slate-900">{entry.day}</dt>
+                    <dd className="text-right text-slate-700">
+                      {entry.times.length > 0 ? (
+                        entry.times.map((time) => <div key={time}>{time}</div>)
+                      ) : (
+                        <span className="font-semibold text-slate-900">{t.contact.closedLabel}</span>
+                      )}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           </div>
 

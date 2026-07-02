@@ -23,7 +23,19 @@ export const translations: Record<Locale, {
   specialties: { heading: string; items: string[] };
   menu: { heading: string; sections: { title: string; items: { name: string; description: string; price: string }[] }[] };
   staff: { heading: string; intro: string; members: { name: string; role: string; bio: string }[] };
-  contact: { heading: string; description: string; addressLabel: string; address: string; phone: string; hours: string; mapTitle: string; footer: string };
+  contact: {
+    heading: string;
+    description: string;
+    addressLabel: string;
+    address: string;
+    phoneLabel: string;
+    phone: string;
+    hoursLabel: string;
+    hours: { day: string; times: string[] }[];
+    closedLabel: string;
+    mapTitle: string;
+    footer: string;
+  };
 }> = {
   it: {
     brand: { name: "Hostaria Germoglio", tagline: "Cucina italiana a Verdello" },
@@ -88,8 +100,19 @@ export const translations: Record<Locale, {
       description: "Siamo a Verdello in Via Solferino 53. Scrivici o chiamaci per prenotare il tuo tavolo.",
       addressLabel: "Indirizzo",
       address: "Via Solferino 53, Verdello (BG)",
+      phoneLabel: "Telefono",
       phone: "+39 371 695 6239",
-      hours: "Mar-Dom 12:00 – 15:00, 19:00 – 23:00",
+      hoursLabel: "Orari",
+      hours: [
+        { day: "Domenica", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+        { day: "Lunedì", times: ["12:15 – 15:00"] },
+        { day: "Martedì", times: ["12:15 – 15:00"] },
+        { day: "Mercoledì", times: ["12:15 – 15:00"] },
+        { day: "Giovedì", times: [] },
+        { day: "Venerdì", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+        { day: "Sabato", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+      ],
+      closedLabel: "Chiuso",
       mapTitle: "Dove ci trovi",
       footer: "Ti aspettiamo a Hostaria Germoglio.",
     },
@@ -157,8 +180,19 @@ export const translations: Record<Locale, {
       description: "Estamos en Verdello en Via Solferino 53. Escríbenos o llámanos para reservar tu mesa.",
       addressLabel: "Dirección",
       address: "Via Solferino 53, Verdello (BG)",
+      phoneLabel: "Teléfono",
       phone: "+39 371 695 6239",
-      hours: "Mar-Dom 12:00 – 15:00, 19:00 – 23:00",
+      hoursLabel: "Horario",
+      hours: [
+        { day: "Domingo", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+        { day: "Lunes", times: ["12:15 – 15:00"] },
+        { day: "Martes", times: ["12:15 – 15:00"] },
+        { day: "Miércoles", times: ["12:15 – 15:00"] },
+        { day: "Jueves", times: [] },
+        { day: "Viernes", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+        { day: "Sábado", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+      ],
+      closedLabel: "Cerrado",
       mapTitle: "Dónde encontrarnos",
       footer: "Te esperamos en Hostaria Germoglio.",
     },
@@ -226,8 +260,19 @@ export const translations: Record<Locale, {
       description: "We are in Verdello at Via Solferino 53. Message or call us to reserve your table.",
       addressLabel: "Address",
       address: "Via Solferino 53, Verdello (BG)",
+      phoneLabel: "Phone",
       phone: "+39 371 695 6239",
-      hours: "Tue-Sun 12:00 – 15:00, 19:00 – 23:00",
+      hoursLabel: "Hours",
+      hours: [
+        { day: "Sunday", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+        { day: "Monday", times: ["12:15 – 15:00"] },
+        { day: "Tuesday", times: ["12:15 – 15:00"] },
+        { day: "Wednesday", times: ["12:15 – 15:00"] },
+        { day: "Thursday", times: [] },
+        { day: "Friday", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+        { day: "Saturday", times: ["12:15 – 15:00", "19:15 – 22:00"] },
+      ],
+      closedLabel: "Closed",
       mapTitle: "Find us here",
       footer: "We look forward to welcoming you at Hostaria Germoglio.",
     },
