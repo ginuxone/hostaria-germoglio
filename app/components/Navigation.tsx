@@ -26,7 +26,7 @@ export default function Navigation({ locale, page }: NavigationProps) {
         <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-white/95 backdrop-blur">
             <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-4">
                 <Link href={`/${locale}`} className="inline-flex items-center gap-3 text-slate-900">
-                    <Image src="/logo.svg" alt="Hostaria Germoglio" width={40} height={40} className="h-10 w-10" />
+                    <Image src="/logo-mark.svg" alt="" width={37} height={40} className="h-10 w-auto" />
                     <span className="text-lg font-semibold tracking-tight text-slate-900">
                         {translations[locale].brand.name}
                     </span>

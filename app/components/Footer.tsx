@@ -9,7 +9,7 @@ export default function Footer({ locale }: { locale: Locale }) {
     <footer className="border-t border-slate-200 bg-white/90 py-6 backdrop-blur-sm">
       <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 text-slate-700 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="" width={40} height={40} className="h-10 w-10" />
+          <Image src="/logo-mark.svg" alt="" width={37} height={40} className="h-10 w-auto" />
           <div>
             <p className="font-semibold text-slate-900">{t.brand.name}</p>
             <p className="text-sm text-slate-600">{t.contact.address}</p>
