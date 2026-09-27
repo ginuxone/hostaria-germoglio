@@ -1,3 +1,5 @@
+import type { GalleryCategory } from "./gallery";
+
 export type Locale = "it" | "es" | "en";
 
 export type Weekday =
@@ -20,14 +22,15 @@ export const localeLabels: Record<Locale, string> = {
 export const pagePaths = {
   home: "",
   menu: "menu",
+  gallery: "gallery",
   staff: "staff",
   contact: "contact",
 } as const;
 
 export const translations: Record<Locale, {
   brand: { name: string; tagline: string };
-  meta: { home: string; menu: string; staff: string; contact: string; imageAlt: string };
-  nav: { home: string; menu: string; staff: string; contact: string };
+  meta: { home: string; menu: string; gallery: string; staff: string; contact: string; imageAlt: string };
+  nav: { home: string; menu: string; gallery: string; staff: string; contact: string };
   hero: { title: string; description: string; button: string };
   about: { heading: string; description: string };
   specialties: { heading: string; items: string[] };
@@ -50,17 +53,28 @@ export const translations: Record<Locale, {
     vatLabel: string;
   };
   notFound: { title: string; description: string; button: string };
+  gallery: {
+    heading: string;
+    intro: string;
+    all: string;
+    categories: Record<GalleryCategory, string>;
+    close: string;
+    previous: string;
+    next: string;
+    cta: string;
+  };
 }> = {
   it: {
     brand: { name: "Hostaria Germoglio", tagline: "Cucina italiana a Verdello" },
     meta: {
       home: "Ristorante italo-peruviano a Verdello (BG): cucina bergamasca, pizze napoletane e sapori del Perù in un'atmosfera famigliare.",
       menu: "Il menu dell'Hostaria Germoglio a Verdello: casoncelli, risotto, lomo saltado, ají de gallina e dolci della casa.",
+      gallery: "Foto dei piatti, della sala e della cucina dell'Hostaria Germoglio a Verdello: sapori italiani e peruviani.",
       staff: "Conosci Zoila, Jorge, Renato e Martina: la famiglia italo-peruviana e il team dell'Hostaria Germoglio.",
       contact: "Indirizzo, telefono e orari dell'Hostaria Germoglio, Via Solferino 53, Verdello (BG). Prenota su WhatsApp.",
       imageAlt: "La sala dell'Hostaria Germoglio a Verdello, con la chef Zoila",
     },
-    nav: { home: "Home", menu: "Menu", staff: "Staff", contact: "Contatti" },
+    nav: { home: "Home", menu: "Menu", gallery: "Galleria", staff: "Staff", contact: "Contatti" },
     hero: {
       title: "Sapori autentici, atmosfera accogliente",
       description: "Scopri piatti regionali preparati con ingredienti freschi e un servizio famigliare nel cuore di Verdello.",
@@ -148,17 +162,28 @@ export const translations: Record<Locale, {
       description: "La pagina che cerchi non esiste o è stata spostata.",
       button: "Torna alla home",
     },
+    gallery: {
+      heading: "Galleria",
+      intro: "Uno sguardo ai nostri piatti, alla sala e a quello che succede in cucina.",
+      all: "Tutte",
+      categories: { food: "Piatti e drink", restaurant: "La sala", kitchen: "Dietro le quinte" },
+      close: "Chiudi",
+      previous: "Foto precedente",
+      next: "Foto successiva",
+      cta: "Ti è venuta fame?",
+    },
   },
   es: {
     brand: { name: "Hostaria Germoglio", tagline: "Cocina italiana en Verdello" },
     meta: {
       home: "Restaurante ítalo-peruano en Verdello (BG): cocina bergamasca, pizzas napolitanas y sabores de Perú en un ambiente familiar.",
       menu: "El menú de la Hostaria Germoglio en Verdello: casoncelli, risotto, lomo saltado, ají de gallina y postres de la casa.",
+      gallery: "Fotos de los platos, el comedor y la cocina de la Hostaria Germoglio en Verdello: sabores italianos y peruanos.",
       staff: "Conoce a Zoila, Jorge, Renato y Martina: la familia ítalo-peruana y el equipo de la Hostaria Germoglio.",
       contact: "Dirección, teléfono y horario de la Hostaria Germoglio, Via Solferino 53, Verdello (BG). Reserva por WhatsApp.",
       imageAlt: "El comedor de la Hostaria Germoglio en Verdello, con la chef Zoila",
     },
-    nav: { home: "Inicio", menu: "Menú", staff: "Equipo", contact: "Contacto" },
+    nav: { home: "Inicio", menu: "Menú", gallery: "Galería", staff: "Equipo", contact: "Contacto" },
     hero: {
       title: "Sabores auténticos, ambiente acogedor",
       description: "Descubre platos regionales elaborados con ingredientes frescos y un servicio familiar en el corazón de Verdello.",
@@ -246,17 +271,28 @@ export const translations: Record<Locale, {
       description: "La página que buscas no existe o se ha movido.",
       button: "Volver al inicio",
     },
+    gallery: {
+      heading: "Galería",
+      intro: "Un vistazo a nuestros platos, al comedor y a lo que pasa en la cocina.",
+      all: "Todas",
+      categories: { food: "Platos y bebidas", restaurant: "El local", kitchen: "Detrás de escena" },
+      close: "Cerrar",
+      previous: "Foto anterior",
+      next: "Foto siguiente",
+      cta: "¿Se te abrió el apetito?",
+    },
   },
   en: {
     brand: { name: "Hostaria Germoglio", tagline: "Italian dining in Verdello" },
     meta: {
       home: "Italian-Peruvian restaurant in Verdello (BG): Bergamo cuisine, Neapolitan pizzas and the flavors of Peru in a family atmosphere.",
       menu: "The Hostaria Germoglio menu in Verdello: casoncelli, risotto, lomo saltado, ají de gallina and house desserts.",
+      gallery: "Photos of the dishes, dining room and kitchen at Hostaria Germoglio in Verdello: Italian and Peruvian flavors.",
       staff: "Meet Zoila, Jorge, Renato and Martina: the Italian-Peruvian family and team behind Hostaria Germoglio.",
       contact: "Address, phone and opening hours for Hostaria Germoglio, Via Solferino 53, Verdello (BG). Book a table on WhatsApp.",
       imageAlt: "The dining room at Hostaria Germoglio in Verdello, with chef Zoila",
     },
-    nav: { home: "Home", menu: "Menu", staff: "Team", contact: "Contact" },
+    nav: { home: "Home", menu: "Menu", gallery: "Gallery", staff: "Team", contact: "Contact" },
     hero: {
       title: "Authentic flavors, warm atmosphere",
       description: "Discover regional dishes made with fresh ingredients and family-style service in the heart of Verdello.",
@@ -343,6 +379,16 @@ export const translations: Record<Locale, {
       title: "Page not found",
       description: "The page you're looking for doesn't exist or has moved.",
       button: "Back to home",
+    },
+    gallery: {
+      heading: "Gallery",
+      intro: "A look at our dishes, our dining room and what goes on in the kitchen.",
+      all: "All",
+      categories: { food: "Food & drink", restaurant: "The restaurant", kitchen: "Behind the scenes" },
+      close: "Close",
+      previous: "Previous photo",
+      next: "Next photo",
+      cta: "Feeling hungry?",
     },
   },
 };

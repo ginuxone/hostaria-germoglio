@@ -32,7 +32,7 @@ export default function Navigation({ locale, page }: NavigationProps) {
                     </span>
                 </Link>
 
-                <nav className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
+                <nav className="order-last flex w-full flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-slate-600 sm:order-none sm:w-auto">
                     {(Object.keys(pagePaths) as Array<keyof typeof pagePaths>).map((key) => (
                         <Link
                             key={key}
