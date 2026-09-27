@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navigation from "../components/Navigation";
 import { getLocale, translations } from "../../lib/translations";
 import { pageMetadata } from "../../lib/metadata";
+import { phone, whatsappUrl } from "../../lib/site";
 
 interface LocalePageProps {
   params: Promise<{ locale: string }>;
@@ -39,12 +40,14 @@ export default async function HomePage({ params }: LocalePageProps) {
           </h1>
           <p className="max-w-2xl text-lg leading-8 text-slate-700">{t.hero.description}</p>
           <div className="flex flex-wrap gap-4">
-            <Link
-              href={`/${locale}/contact`}
+            <a
+              href={whatsappUrl(t.contact.whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
             >
               {t.hero.button}
-            </Link>
+            </a>
             <Link
               href={`/${locale}/menu`}
               className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400"
@@ -75,8 +78,8 @@ export default async function HomePage({ params }: LocalePageProps) {
           <article className="rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/40">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.nav.contact}</p>
             <p className="mt-4 text-lg font-semibold text-slate-900">{t.contact.address}</p>
-            <a href="tel:+393716956239" className="mt-2 block text-slate-600 transition hover:text-slate-900">
-              {t.contact.phone}
+            <a href={phone.href} className="mt-2 block text-slate-600 transition hover:text-slate-900">
+              {phone.display}
             </a>
           </article>
           <article className="rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/40">

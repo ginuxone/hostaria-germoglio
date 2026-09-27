@@ -1,6 +1,7 @@
 import Navigation from "../../components/Navigation";
 import { getLocale, translations } from "../../../lib/translations";
 import { pageMetadata } from "../../../lib/metadata";
+import { phone, whatsappUrl } from "../../../lib/site";
 
 interface ContactPageProps {
   params: Promise<{ locale: string }>;
@@ -36,8 +37,19 @@ export default async function ContactPage({ params }: ContactPageProps) {
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.phoneLabel}</p>
-                  <a href="tel:+393716956239" className="mt-3 block text-lg text-slate-700 transition hover:text-slate-900">
-                    {t.contact.phone}
+                  <a href={phone.href} className="mt-3 block text-lg text-slate-700 transition hover:text-slate-900">
+                    {phone.display}
+                  </a>
+                </div>
+                <div className="space-y-4 border-t border-slate-100 pt-6">
+                  <p className="text-slate-700">{t.contact.whatsappHint}</p>
+                  <a
+                    href={whatsappUrl(t.contact.whatsappMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800"
+                  >
+                    {t.contact.whatsappLabel}
                   </a>
                 </div>
               </div>

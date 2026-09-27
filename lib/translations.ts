@@ -30,7 +30,9 @@ export const translations: Record<Locale, {
     addressLabel: string;
     address: string;
     phoneLabel: string;
-    phone: string;
+    whatsappLabel: string;
+    whatsappHint: string;
+    whatsappMessage: string;
     hoursLabel: string;
     hours: { day: string; times: string[] }[];
     closedLabel: string;
@@ -44,7 +46,7 @@ export const translations: Record<Locale, {
       home: "Ristorante italo-peruviano a Verdello (BG): cucina bergamasca, pizze napoletane e sapori del Perù in un'atmosfera famigliare.",
       menu: "Il menu dell'Hostaria Germoglio a Verdello: casoncelli, risotto, lomo saltado, ají de gallina e dolci della casa.",
       staff: "Conosci Zoila, Jorge, Renato e Martina: la famiglia italo-peruviana e il team dell'Hostaria Germoglio.",
-      contact: "Indirizzo, telefono e orari dell'Hostaria Germoglio, Via Solferino 53, Verdello (BG). Chiamaci per prenotare.",
+      contact: "Indirizzo, telefono e orari dell'Hostaria Germoglio, Via Solferino 53, Verdello (BG). Prenota su WhatsApp.",
     },
     nav: { home: "Home", menu: "Menu", staff: "Staff", contact: "Contatti" },
     hero: {
@@ -111,7 +113,9 @@ export const translations: Record<Locale, {
       addressLabel: "Indirizzo",
       address: "Via Solferino 53, Verdello (BG)",
       phoneLabel: "Telefono",
-      phone: "+39 371 695 6239",
+      whatsappLabel: "Prenota su WhatsApp",
+      whatsappHint: "Scrivici su WhatsApp con giorno, orario e numero di persone: ti confermiamo il tavolo il prima possibile.",
+      whatsappMessage: "Ciao! Vorrei prenotare un tavolo all'Hostaria Germoglio.\nGiorno: \nOrario: \nNumero di persone: \nNome: ",
       hoursLabel: "Orari",
       hours: [
         { day: "Domenica", times: ["12:15 – 15:00", "19:15 – 22:00"] },
@@ -133,7 +137,7 @@ export const translations: Record<Locale, {
       home: "Restaurante ítalo-peruano en Verdello (BG): cocina bergamasca, pizzas napolitanas y sabores de Perú en un ambiente familiar.",
       menu: "El menú de la Hostaria Germoglio en Verdello: casoncelli, risotto, lomo saltado, ají de gallina y postres de la casa.",
       staff: "Conoce a Zoila, Jorge, Renato y Martina: la familia ítalo-peruana y el equipo de la Hostaria Germoglio.",
-      contact: "Dirección, teléfono y horario de la Hostaria Germoglio, Via Solferino 53, Verdello (BG). Llámanos para reservar.",
+      contact: "Dirección, teléfono y horario de la Hostaria Germoglio, Via Solferino 53, Verdello (BG). Reserva por WhatsApp.",
     },
     nav: { home: "Inicio", menu: "Menú", staff: "Equipo", contact: "Contacto" },
     hero: {
@@ -200,7 +204,9 @@ export const translations: Record<Locale, {
       addressLabel: "Dirección",
       address: "Via Solferino 53, Verdello (BG)",
       phoneLabel: "Teléfono",
-      phone: "+39 371 695 6239",
+      whatsappLabel: "Reserva por WhatsApp",
+      whatsappHint: "Escríbenos por WhatsApp con el día, la hora y el número de personas: te confirmamos la mesa lo antes posible.",
+      whatsappMessage: "¡Hola! Quisiera reservar una mesa en la Hostaria Germoglio.\nDía: \nHora: \nNúmero de personas: \nNombre: ",
       hoursLabel: "Horario",
       hours: [
         { day: "Domingo", times: ["12:15 – 15:00", "19:15 – 22:00"] },
@@ -222,7 +228,7 @@ export const translations: Record<Locale, {
       home: "Italian-Peruvian restaurant in Verdello (BG): Bergamo cuisine, Neapolitan pizzas and the flavors of Peru in a family atmosphere.",
       menu: "The Hostaria Germoglio menu in Verdello: casoncelli, risotto, lomo saltado, ají de gallina and house desserts.",
       staff: "Meet Zoila, Jorge, Renato and Martina: the Italian-Peruvian family and team behind Hostaria Germoglio.",
-      contact: "Address, phone and opening hours for Hostaria Germoglio, Via Solferino 53, Verdello (BG). Call us to book a table.",
+      contact: "Address, phone and opening hours for Hostaria Germoglio, Via Solferino 53, Verdello (BG). Book a table on WhatsApp.",
     },
     nav: { home: "Home", menu: "Menu", staff: "Team", contact: "Contact" },
     hero: {
@@ -289,7 +295,9 @@ export const translations: Record<Locale, {
       addressLabel: "Address",
       address: "Via Solferino 53, Verdello (BG)",
       phoneLabel: "Phone",
-      phone: "+39 371 695 6239",
+      whatsappLabel: "Book on WhatsApp",
+      whatsappHint: "Message us on WhatsApp with the day, time and number of guests, and we'll confirm your table as soon as possible.",
+      whatsappMessage: "Hi! I'd like to book a table at Hostaria Germoglio.\nDay: \nTime: \nNumber of guests: \nName: ",
       hoursLabel: "Hours",
       hours: [
         { day: "Sunday", times: ["12:15 – 15:00", "19:15 – 22:00"] },
