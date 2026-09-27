@@ -1,9 +1,14 @@
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import { getLocale, translations } from "../../lib/translations";
+import { pageMetadata } from "../../lib/metadata";
 
 interface LocalePageProps {
   params: Promise<{ locale: string }>;
+}
+
+export function generateMetadata({ params }: LocalePageProps) {
+  return pageMetadata(params, "home");
 }
 
 export default async function HomePage({ params }: LocalePageProps) {

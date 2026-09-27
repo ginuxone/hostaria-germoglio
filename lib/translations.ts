@@ -17,6 +17,7 @@ export const pagePaths = {
 
 export const translations: Record<Locale, {
   brand: { name: string; tagline: string };
+  meta: { home: string; menu: string; staff: string; contact: string };
   nav: { home: string; menu: string; staff: string; contact: string };
   hero: { title: string; description: string; button: string };
   about: { heading: string; description: string };
@@ -39,6 +40,12 @@ export const translations: Record<Locale, {
 }> = {
   it: {
     brand: { name: "Hostaria Germoglio", tagline: "Cucina italiana a Verdello" },
+    meta: {
+      home: "Ristorante italo-peruviano a Verdello (BG): cucina bergamasca, pizze napoletane e sapori del Perù in un'atmosfera famigliare.",
+      menu: "Il menu dell'Hostaria Germoglio a Verdello: casoncelli, risotto, lomo saltado, ají de gallina e dolci della casa.",
+      staff: "Conosci Zoila, Jorge, Renato e Martina: la famiglia italo-peruviana e il team dell'Hostaria Germoglio.",
+      contact: "Indirizzo, telefono e orari dell'Hostaria Germoglio, Via Solferino 53, Verdello (BG). Chiamaci per prenotare.",
+    },
     nav: { home: "Home", menu: "Menu", staff: "Staff", contact: "Contatti" },
     hero: {
       title: "Sapori autentici, atmosfera accogliente",
@@ -47,7 +54,7 @@ export const translations: Record<Locale, {
     },
     about: {
       heading: "Benvenuti a Hostaria Germoglio",
-      description: "Nata nel 2012 con la cucina tipica bergamasca e le nostre pizze napoletane, dal 2019 l'Hostaria è gestita da una famiglia italo-peruviana che ha arricchito il menu con i sapori del Perù. Vi accogliamo in un'atmosfera calda e familiare, circondati da una trattoria dove è possibile visitare gli animali.",
+      description: "Nata nel 2012 con la cucina tipica bergamasca e le nostre pizze napoletane, dal 2019 l'Hostaria è gestita da una famiglia italo-peruviana che ha arricchito il menu con i sapori del Perù. Vi accogliamo in un'atmosfera calda e familiare, circondati da una fattoria dove è possibile visitare gli animali.",
     },
     specialties: {
       heading: "Specialità della casa",
@@ -122,6 +129,12 @@ export const translations: Record<Locale, {
   },
   es: {
     brand: { name: "Hostaria Germoglio", tagline: "Cocina italiana en Verdello" },
+    meta: {
+      home: "Restaurante ítalo-peruano en Verdello (BG): cocina bergamasca, pizzas napolitanas y sabores de Perú en un ambiente familiar.",
+      menu: "El menú de la Hostaria Germoglio en Verdello: casoncelli, risotto, lomo saltado, ají de gallina y postres de la casa.",
+      staff: "Conoce a Zoila, Jorge, Renato y Martina: la familia ítalo-peruana y el equipo de la Hostaria Germoglio.",
+      contact: "Dirección, teléfono y horario de la Hostaria Germoglio, Via Solferino 53, Verdello (BG). Llámanos para reservar.",
+    },
     nav: { home: "Inicio", menu: "Menú", staff: "Equipo", contact: "Contacto" },
     hero: {
       title: "Sabores auténticos, ambiente acogedor",
@@ -130,7 +143,7 @@ export const translations: Record<Locale, {
     },
     about: {
       heading: "Bienvenidos a Hostaria Germoglio",
-      description: "Fundada en 2012 con la cocina típica de Bérgamo y nuestras pizzas napolitanas, desde 2019 la Hostaria está gestionada por una familia ítalo-peruana que ha enriquecido el menú con los sabores de Perú. Te recibimos en un ambiente cálido y familiar, rodeado de una trattoria donde se pueden visitar los animales.",
+      description: "Fundada en 2012 con la cocina típica de Bérgamo y nuestras pizzas napolitanas, desde 2019 la Hostaria está gestionada por una familia ítalo-peruana que ha enriquecido el menú con los sabores de Perú. Te recibimos en un ambiente cálido y familiar, rodeado de una granja donde se pueden visitar los animales.",
     },
     specialties: {
       heading: "Especialidades de la casa",
@@ -178,6 +191,7 @@ export const translations: Record<Locale, {
         { name: "Zoila", role: "Chef y Propietaria", bio: "Dirige la cocina de la Hostaria llevando a la mesa los sabores de su Perú natal junto con la tradición italiana de la casa.", photo: "/images/staff-zoila.jpg" },
         { name: "Jorge", role: "RRPP y Barman", bio: "Recibe a cada huésped con una sonrisa y cuida la sala y la barra, haciendo de cada noche una experiencia cálida.", photo: "/images/staff-jorge.jpg" },
         { name: "Renato", role: "Camarero", bio: "Atiende las mesas con atención y precisión, siempre listo para recomendar los platos del día.", photo: "/images/staff-renato.jpg" },
+        { name: "Martina", role: "Camarera", bio: "Con energía y entusiasmo, se asegura de que cada huésped se sienta como en casa del primer al último plato.", photo: "/images/staff-martina.jpg" },
       ],
     },
     contact: {
@@ -204,6 +218,12 @@ export const translations: Record<Locale, {
   },
   en: {
     brand: { name: "Hostaria Germoglio", tagline: "Italian dining in Verdello" },
+    meta: {
+      home: "Italian-Peruvian restaurant in Verdello (BG): Bergamo cuisine, Neapolitan pizzas and the flavors of Peru in a family atmosphere.",
+      menu: "The Hostaria Germoglio menu in Verdello: casoncelli, risotto, lomo saltado, ají de gallina and house desserts.",
+      staff: "Meet Zoila, Jorge, Renato and Martina: the Italian-Peruvian family and team behind Hostaria Germoglio.",
+      contact: "Address, phone and opening hours for Hostaria Germoglio, Via Solferino 53, Verdello (BG). Call us to book a table.",
+    },
     nav: { home: "Home", menu: "Menu", staff: "Team", contact: "Contact" },
     hero: {
       title: "Authentic flavors, warm atmosphere",

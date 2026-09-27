@@ -1,8 +1,13 @@
 import Navigation from "../../components/Navigation";
 import { getLocale, translations } from "../../../lib/translations";
+import { pageMetadata } from "../../../lib/metadata";
 
 interface MenuPageProps {
   params: Promise<{ locale: string }>;
+}
+
+export function generateMetadata({ params }: MenuPageProps) {
+  return pageMetadata(params, "menu");
 }
 
 export default async function MenuPage({ params }: MenuPageProps) {

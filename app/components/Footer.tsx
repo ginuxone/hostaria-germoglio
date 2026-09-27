@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { socialLinks, vatNumber } from "../../lib/site";
 
 const Footer = () => {
   return (
@@ -13,17 +14,15 @@ const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-3 text-sm md:flex-row md:items-center md:gap-6">
-          <span className="text-slate-600">Partita IVA: 12345678901</span>
+          <span className="text-slate-600">Partita IVA: {vatNumber}</span>
           <nav className="flex flex-wrap items-center gap-4 text-slate-700">
-            <a href="https://www.instagram.com/hostariagermoglioverdello/" target="_blank" rel="noopener noreferrer" className="transition hover:text-slate-900">
-              Instagram
-            </a>
-            <a href="https://www.facebook.com/HostariaGermoglioVerdello/" target="_blank" rel="noopener noreferrer" className="transition hover:text-slate-900">
-              Facebook
-            </a>
-            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className="transition hover:text-slate-900">
-              TikTok
-            </a>
+            {socialLinks.map(({ label, href }) =>
+              href ? (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="transition hover:text-slate-900">
+                  {label}
+                </a>
+              ) : null,
+            )}
           </nav>
         </div>
       </div>

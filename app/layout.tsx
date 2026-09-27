@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import Footer from "./components/Footer";
-import PageLoader from "./components/PageLoader";
+import { siteUrl } from "../lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +16,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hostaria Germoglio",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Hostaria Germoglio",
+    template: "%s | Hostaria Germoglio",
+  },
   description: "Ristorante italiano a Verdello con cucina tradizionale e atmosfera famigliare.",
 };
 
@@ -34,7 +38,6 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[#f8f4ef] text-slate-900">
-        <PageLoader />
         {children}
         <Footer />
       </body>

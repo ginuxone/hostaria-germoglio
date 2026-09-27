@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Navigation from "../../components/Navigation";
 import { getLocale, translations } from "../../../lib/translations";
+import { pageMetadata } from "../../../lib/metadata";
 
 interface StaffPageProps {
   params: Promise<{ locale: string }>;
+}
+
+export function generateMetadata({ params }: StaffPageProps) {
+  return pageMetadata(params, "staff");
 }
 
 export default async function StaffPage({ params }: StaffPageProps) {

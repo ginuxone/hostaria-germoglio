@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Locale, localeLabels, pagePaths, translations } from "../../lib/translations";
+import { localePath } from "../../lib/site";
 
 interface NavigationProps {
     locale: Locale;
@@ -17,7 +18,7 @@ export default function Navigation({ locale, page }: NavigationProps) {
 
     const handleLocaleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const nextLocale = event.target.value as Locale;
-        router.push(`/${nextLocale}/${pagePaths[page]}`);
+        router.push(localePath(nextLocale, page));
     };
 
     return (
@@ -34,7 +35,8 @@ export default function Navigation({ locale, page }: NavigationProps) {
                     {(Object.keys(pagePaths) as Array<keyof typeof pagePaths>).map((key) => (
                         <Link
                             key={key}
-                            href={`/${locale}/${pagePaths[key]}`}
+                            href={localePath(locale, key)}
+                            aria-current={page === key ? "page" : undefined}
                             className={`transition hover:text-slate-900 ${page === key ? "text-slate-900" : ""}`}
                         >
                             {nav[key]}

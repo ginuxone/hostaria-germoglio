@@ -1,8 +1,13 @@
 import Navigation from "../../components/Navigation";
 import { getLocale, translations } from "../../../lib/translations";
+import { pageMetadata } from "../../../lib/metadata";
 
 interface ContactPageProps {
   params: Promise<{ locale: string }>;
+}
+
+export function generateMetadata({ params }: ContactPageProps) {
+  return pageMetadata(params, "contact");
 }
 
 export default async function ContactPage({ params }: ContactPageProps) {
