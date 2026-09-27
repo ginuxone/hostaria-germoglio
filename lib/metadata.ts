@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getLocale, translations } from "./translations";
-import { languageAlternates, localePath, type Page } from "./site";
+import { languageAlternates, localePath, shareImage, type Page } from "./site";
 
 const ogLocales = { it: "it_IT", es: "es_ES", en: "en_GB" } as const;
 
@@ -30,6 +30,7 @@ export async function pageMetadata(
       url: localePath(locale, page),
       title: typeof title === "string" ? `${title} | ${t.brand.name}` : title.absolute,
       description,
+      images: [{ ...shareImage, alt: t.meta.imageAlt }],
     },
   };
 }

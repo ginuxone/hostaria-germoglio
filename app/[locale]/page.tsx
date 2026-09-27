@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import { getLocale, translations } from "../../lib/translations";
 import { pageMetadata } from "../../lib/metadata";
 import { phone, whatsappUrl } from "../../lib/site";
+import { restaurantJsonLd } from "../../lib/structured-data";
 
 interface LocalePageProps {
   params: Promise<{ locale: string }>;
@@ -18,16 +20,24 @@ export default async function HomePage({ params }: LocalePageProps) {
   const t = translations[locale];
 
   return (
-    <main
-      className="min-h-screen text-slate-900"
-      style={{
-        backgroundImage: "url('/images/background.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#f8f4ef',
-      }}
-    >
+    <main className="relative isolate min-h-screen bg-[#f8f4ef] text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: restaurantJsonLd(locale) }}
+      />
+      <Image
+        src="/images/background.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-10 object-cover"
+      />
+      {/* Softens the photo behind the hero text so it stays readable. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[#f8f4ef]/60 lg:bg-transparent lg:bg-linear-to-r lg:from-[#f8f4ef]/95 lg:via-[#f8f4ef]/65 lg:to-[#f8f4ef]/10"
+      />
       <Navigation locale={locale} page="home" />
 
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">

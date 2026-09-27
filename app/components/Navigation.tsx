@@ -9,7 +9,8 @@ import { localePath } from "../../lib/site";
 
 interface NavigationProps {
     locale: Locale;
-    page: keyof typeof pagePaths;
+    // Omitted on pages outside the main sections, e.g. the 404 page.
+    page?: keyof typeof pagePaths;
 }
 
 export default function Navigation({ locale, page }: NavigationProps) {
@@ -18,7 +19,7 @@ export default function Navigation({ locale, page }: NavigationProps) {
 
     const handleLocaleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const nextLocale = event.target.value as Locale;
-        router.push(localePath(nextLocale, page));
+        router.push(localePath(nextLocale, page ?? "home"));
     };
 
     return (

@@ -1,8 +1,30 @@
-import { type Locale, locales, pagePaths } from "./translations";
+import { type Locale, type Weekday, locales, pagePaths } from "./translations";
 
 export const siteUrl = "https://www.hostariagermoglio.it";
 
+// 1200×630 image used when links to the site are shared.
+export const shareImage = { url: "/images/og-image.jpg", width: 1200, height: 630 };
+
 export const vatNumber = "04339080162";
+
+export const address = {
+  street: "Via Solferino 53",
+  postalCode: "24049",
+  city: "Verdello",
+  province: "BG",
+  country: "IT",
+};
+
+// Listed in display order; each slot is [opens, closes] in 24h time.
+export const openingHours: { day: Weekday; slots: [string, string][] }[] = [
+  { day: "Sunday", slots: [["12:15", "15:00"], ["19:15", "22:00"]] },
+  { day: "Monday", slots: [["12:15", "15:00"]] },
+  { day: "Tuesday", slots: [["12:15", "15:00"]] },
+  { day: "Wednesday", slots: [["12:15", "15:00"]] },
+  { day: "Thursday", slots: [] },
+  { day: "Friday", slots: [["12:15", "15:00"], ["19:15", "22:00"]] },
+  { day: "Saturday", slots: [["12:15", "15:00"], ["19:15", "22:00"]] },
+];
 
 export const phone = {
   display: "+39 371 695 6239",

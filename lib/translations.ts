@@ -1,5 +1,14 @@
 export type Locale = "it" | "es" | "en";
 
+export type Weekday =
+  | "Sunday"
+  | "Monday"
+  | "Tuesday"
+  | "Wednesday"
+  | "Thursday"
+  | "Friday"
+  | "Saturday";
+
 export const locales: Locale[] = ["it", "es", "en"];
 
 export const localeLabels: Record<Locale, string> = {
@@ -17,7 +26,7 @@ export const pagePaths = {
 
 export const translations: Record<Locale, {
   brand: { name: string; tagline: string };
-  meta: { home: string; menu: string; staff: string; contact: string };
+  meta: { home: string; menu: string; staff: string; contact: string; imageAlt: string };
   nav: { home: string; menu: string; staff: string; contact: string };
   hero: { title: string; description: string; button: string };
   about: { heading: string; description: string };
@@ -34,11 +43,13 @@ export const translations: Record<Locale, {
     whatsappHint: string;
     whatsappMessage: string;
     hoursLabel: string;
-    hours: { day: string; times: string[] }[];
+    days: Record<Weekday, string>;
     closedLabel: string;
     mapTitle: string;
     footer: string;
+    vatLabel: string;
   };
+  notFound: { title: string; description: string; button: string };
 }> = {
   it: {
     brand: { name: "Hostaria Germoglio", tagline: "Cucina italiana a Verdello" },
@@ -47,6 +58,7 @@ export const translations: Record<Locale, {
       menu: "Il menu dell'Hostaria Germoglio a Verdello: casoncelli, risotto, lomo saltado, ají de gallina e dolci della casa.",
       staff: "Conosci Zoila, Jorge, Renato e Martina: la famiglia italo-peruviana e il team dell'Hostaria Germoglio.",
       contact: "Indirizzo, telefono e orari dell'Hostaria Germoglio, Via Solferino 53, Verdello (BG). Prenota su WhatsApp.",
+      imageAlt: "La sala dell'Hostaria Germoglio a Verdello, con la chef Zoila",
     },
     nav: { home: "Home", menu: "Menu", staff: "Staff", contact: "Contatti" },
     hero: {
@@ -117,18 +129,24 @@ export const translations: Record<Locale, {
       whatsappHint: "Scrivici su WhatsApp con giorno, orario e numero di persone: ti confermiamo il tavolo il prima possibile.",
       whatsappMessage: "Ciao! Vorrei prenotare un tavolo all'Hostaria Germoglio.\nGiorno: \nOrario: \nNumero di persone: \nNome: ",
       hoursLabel: "Orari",
-      hours: [
-        { day: "Domenica", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-        { day: "Lunedì", times: ["12:15 – 15:00"] },
-        { day: "Martedì", times: ["12:15 – 15:00"] },
-        { day: "Mercoledì", times: ["12:15 – 15:00"] },
-        { day: "Giovedì", times: [] },
-        { day: "Venerdì", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-        { day: "Sabato", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-      ],
+      days: {
+        Sunday: "Domenica",
+        Monday: "Lunedì",
+        Tuesday: "Martedì",
+        Wednesday: "Mercoledì",
+        Thursday: "Giovedì",
+        Friday: "Venerdì",
+        Saturday: "Sabato",
+      },
       closedLabel: "Chiuso",
       mapTitle: "Dove ci trovi",
       footer: "Ti aspettiamo a Hostaria Germoglio.",
+      vatLabel: "Partita IVA",
+    },
+    notFound: {
+      title: "Pagina non trovata",
+      description: "La pagina che cerchi non esiste o è stata spostata.",
+      button: "Torna alla home",
     },
   },
   es: {
@@ -138,6 +156,7 @@ export const translations: Record<Locale, {
       menu: "El menú de la Hostaria Germoglio en Verdello: casoncelli, risotto, lomo saltado, ají de gallina y postres de la casa.",
       staff: "Conoce a Zoila, Jorge, Renato y Martina: la familia ítalo-peruana y el equipo de la Hostaria Germoglio.",
       contact: "Dirección, teléfono y horario de la Hostaria Germoglio, Via Solferino 53, Verdello (BG). Reserva por WhatsApp.",
+      imageAlt: "El comedor de la Hostaria Germoglio en Verdello, con la chef Zoila",
     },
     nav: { home: "Inicio", menu: "Menú", staff: "Equipo", contact: "Contacto" },
     hero: {
@@ -208,18 +227,24 @@ export const translations: Record<Locale, {
       whatsappHint: "Escríbenos por WhatsApp con el día, la hora y el número de personas: te confirmamos la mesa lo antes posible.",
       whatsappMessage: "¡Hola! Quisiera reservar una mesa en la Hostaria Germoglio.\nDía: \nHora: \nNúmero de personas: \nNombre: ",
       hoursLabel: "Horario",
-      hours: [
-        { day: "Domingo", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-        { day: "Lunes", times: ["12:15 – 15:00"] },
-        { day: "Martes", times: ["12:15 – 15:00"] },
-        { day: "Miércoles", times: ["12:15 – 15:00"] },
-        { day: "Jueves", times: [] },
-        { day: "Viernes", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-        { day: "Sábado", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-      ],
+      days: {
+        Sunday: "Domingo",
+        Monday: "Lunes",
+        Tuesday: "Martes",
+        Wednesday: "Miércoles",
+        Thursday: "Jueves",
+        Friday: "Viernes",
+        Saturday: "Sábado",
+      },
       closedLabel: "Cerrado",
       mapTitle: "Dónde encontrarnos",
       footer: "Te esperamos en Hostaria Germoglio.",
+      vatLabel: "P. IVA",
+    },
+    notFound: {
+      title: "Página no encontrada",
+      description: "La página que buscas no existe o se ha movido.",
+      button: "Volver al inicio",
     },
   },
   en: {
@@ -229,6 +254,7 @@ export const translations: Record<Locale, {
       menu: "The Hostaria Germoglio menu in Verdello: casoncelli, risotto, lomo saltado, ají de gallina and house desserts.",
       staff: "Meet Zoila, Jorge, Renato and Martina: the Italian-Peruvian family and team behind Hostaria Germoglio.",
       contact: "Address, phone and opening hours for Hostaria Germoglio, Via Solferino 53, Verdello (BG). Book a table on WhatsApp.",
+      imageAlt: "The dining room at Hostaria Germoglio in Verdello, with chef Zoila",
     },
     nav: { home: "Home", menu: "Menu", staff: "Team", contact: "Contact" },
     hero: {
@@ -299,18 +325,24 @@ export const translations: Record<Locale, {
       whatsappHint: "Message us on WhatsApp with the day, time and number of guests, and we'll confirm your table as soon as possible.",
       whatsappMessage: "Hi! I'd like to book a table at Hostaria Germoglio.\nDay: \nTime: \nNumber of guests: \nName: ",
       hoursLabel: "Hours",
-      hours: [
-        { day: "Sunday", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-        { day: "Monday", times: ["12:15 – 15:00"] },
-        { day: "Tuesday", times: ["12:15 – 15:00"] },
-        { day: "Wednesday", times: ["12:15 – 15:00"] },
-        { day: "Thursday", times: [] },
-        { day: "Friday", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-        { day: "Saturday", times: ["12:15 – 15:00", "19:15 – 22:00"] },
-      ],
+      days: {
+        Sunday: "Sunday",
+        Monday: "Monday",
+        Tuesday: "Tuesday",
+        Wednesday: "Wednesday",
+        Thursday: "Thursday",
+        Friday: "Friday",
+        Saturday: "Saturday",
+      },
       closedLabel: "Closed",
       mapTitle: "Find us here",
       footer: "We look forward to welcoming you at Hostaria Germoglio.",
+      vatLabel: "VAT no.",
+    },
+    notFound: {
+      title: "Page not found",
+      description: "The page you're looking for doesn't exist or has moved.",
+      button: "Back to home",
     },
   },
 };
