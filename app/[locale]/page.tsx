@@ -1,9 +1,17 @@
+import Image from "next/image";
 import Link from "next/link";
 import Navigation from "../components/Navigation";
 import { getLocale, translations } from "../../lib/translations";
+import { pageMetadata } from "../../lib/metadata";
+import { phone, whatsappUrl } from "../../lib/site";
+import { restaurantJsonLd } from "../../lib/structured-data";
 
 interface LocalePageProps {
   params: Promise<{ locale: string }>;
+}
+
+export function generateMetadata({ params }: LocalePageProps) {
+  return pageMetadata(params, "home");
 }
 
 export default async function HomePage({ params }: LocalePageProps) {
@@ -12,16 +20,24 @@ export default async function HomePage({ params }: LocalePageProps) {
   const t = translations[locale];
 
   return (
-    <main
-      className="min-h-screen text-slate-900"
-      style={{
-        backgroundImage: "url('/images/background.jpg')",
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: '#f8f4ef',
-      }}
-    >
+    <main className="relative isolate min-h-screen bg-[#f8f4ef] text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: restaurantJsonLd(locale) }}
+      />
+      <Image
+        src="/images/background.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="-z-10 object-cover"
+      />
+      {/* Softens the photo behind the hero text so it stays readable. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[#f8f4ef]/60 lg:bg-transparent lg:bg-linear-to-r lg:from-[#f8f4ef]/95 lg:via-[#f8f4ef]/65 lg:to-[#f8f4ef]/10"
+      />
       <Navigation locale={locale} page="home" />
 
       <section className="mx-auto grid max-w-6xl gap-10 px-6 py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
@@ -34,12 +50,14 @@ export default async function HomePage({ params }: LocalePageProps) {
           </h1>
           <p className="max-w-2xl text-lg leading-8 text-slate-700">{t.hero.description}</p>
           <div className="flex flex-wrap gap-4">
-            <Link
-              href={`/${locale}/contact`}
+            <a
+              href={whatsappUrl(t.contact.whatsappMessage)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
             >
               {t.hero.button}
-            </Link>
+            </a>
             <Link
               href={`/${locale}/menu`}
               className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400"
@@ -70,8 +88,8 @@ export default async function HomePage({ params }: LocalePageProps) {
           <article className="rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/40">
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.nav.contact}</p>
             <p className="mt-4 text-lg font-semibold text-slate-900">{t.contact.address}</p>
-            <a href="tel:+393716956239" className="mt-2 block text-slate-600 transition hover:text-slate-900">
-              {t.contact.phone}
+            <a href={phone.href} className="mt-2 block text-slate-600 transition hover:text-slate-900">
+              {phone.display}
             </a>
           </article>
           <article className="rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/40">

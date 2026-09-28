@@ -5,10 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Locale, localeLabels, pagePaths, translations } from "../../lib/translations";
+import { localePath } from "../../lib/site";
 
 interface NavigationProps {
     locale: Locale;
-    page: keyof typeof pagePaths;
+    // Omitted on pages outside the main sections, e.g. the 404 page.
+    page?: keyof typeof pagePaths;
 }
 
 export default function Navigation({ locale, page }: NavigationProps) {
@@ -17,24 +19,25 @@ export default function Navigation({ locale, page }: NavigationProps) {
 
     const handleLocaleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const nextLocale = event.target.value as Locale;
-        router.push(`/${nextLocale}/${pagePaths[page]}`);
+        router.push(localePath(nextLocale, page ?? "home"));
     };
 
     return (
         <header className="sticky top-0 z-20 border-b border-slate-200/70 bg-white/95 backdrop-blur">
             <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-6 py-4">
                 <Link href={`/${locale}`} className="inline-flex items-center gap-3 text-slate-900">
-                    <Image src="/logo.svg" alt="Hostaria Germoglio" width={40} height={40} className="h-10 w-10" />
+                    <Image src="/logo-mark.svg" alt="" width={37} height={40} className="h-10 w-auto" />
                     <span className="text-lg font-semibold tracking-tight text-slate-900">
                         {translations[locale].brand.name}
                     </span>
                 </Link>
 
-                <nav className="flex flex-wrap items-center gap-4 text-sm font-medium text-slate-600">
+                <nav className="order-last flex w-full flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-slate-600 sm:order-none sm:w-auto">
                     {(Object.keys(pagePaths) as Array<keyof typeof pagePaths>).map((key) => (
                         <Link
                             key={key}
-                            href={`/${locale}/${pagePaths[key]}`}
+                            href={localePath(locale, key)}
+                            aria-current={page === key ? "page" : undefined}
                             className={`transition hover:text-slate-900 ${page === key ? "text-slate-900" : ""}`}
                         >
                             {nav[key]}

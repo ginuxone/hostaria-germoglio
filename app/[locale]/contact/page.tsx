@@ -1,8 +1,14 @@
 import Navigation from "../../components/Navigation";
 import { getLocale, translations } from "../../../lib/translations";
+import { pageMetadata } from "../../../lib/metadata";
+import { openingHours, phone, whatsappUrl } from "../../../lib/site";
 
 interface ContactPageProps {
   params: Promise<{ locale: string }>;
+}
+
+export function generateMetadata({ params }: ContactPageProps) {
+  return pageMetadata(params, "contact");
 }
 
 export default async function ContactPage({ params }: ContactPageProps) {
@@ -31,8 +37,19 @@ export default async function ContactPage({ params }: ContactPageProps) {
                 </div>
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.phoneLabel}</p>
-                  <a href="tel:+393716956239" className="mt-3 block text-lg text-slate-700 transition hover:text-slate-900">
-                    {t.contact.phone}
+                  <a href={phone.href} className="mt-3 block text-lg text-slate-700 transition hover:text-slate-900">
+                    {phone.display}
+                  </a>
+                </div>
+                <div className="space-y-4 border-t border-slate-100 pt-6">
+                  <p className="text-slate-700">{t.contact.whatsappHint}</p>
+                  <a
+                    href={whatsappUrl(t.contact.whatsappMessage)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800"
+                  >
+                    {t.contact.whatsappLabel}
                   </a>
                 </div>
               </div>
@@ -41,12 +58,12 @@ export default async function ContactPage({ params }: ContactPageProps) {
             <div className="rounded-[2rem] bg-white p-8 shadow-lg shadow-slate-200/50">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.hoursLabel}</p>
               <dl className="mt-4 divide-y divide-slate-100">
-                {t.contact.hours.map((entry) => (
-                  <div key={entry.day} className="flex items-baseline justify-between gap-4 py-2 first:pt-0 last:pb-0">
-                    <dt className="font-semibold text-slate-900">{entry.day}</dt>
+                {openingHours.map(({ day, slots }) => (
+                  <div key={day} className="flex items-baseline justify-between gap-4 py-2 first:pt-0 last:pb-0">
+                    <dt className="font-semibold text-slate-900">{t.contact.days[day]}</dt>
                     <dd className="text-right text-slate-700">
-                      {entry.times.length > 0 ? (
-                        entry.times.map((time) => <div key={time}>{time}</div>)
+                      {slots.length > 0 ? (
+                        slots.map(([opens, closes]) => <div key={opens}>{opens} – {closes}</div>)
                       ) : (
                         <span className="font-semibold text-slate-900">{t.contact.closedLabel}</span>
                       )}
@@ -62,7 +79,7 @@ export default async function ContactPage({ params }: ContactPageProps) {
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">{t.contact.mapTitle}</p>
               <div className="mt-5 overflow-hidden rounded-3xl border border-slate-200">
                 <iframe
-                  title="Hostaria Germoglio map"
+                  title={t.contact.mapTitle}
                   src="https://maps.google.com/maps?q=Via%20Solferino%2053%2C%20Verdello%2C%20Italy&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   className="h-80 w-full"
                   loading="lazy"

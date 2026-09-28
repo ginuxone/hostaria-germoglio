@@ -1,42 +1,55 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import Footer from "./components/Footer";
-import PageLoader from "./components/PageLoader";
+import { shareImage, siteUrl } from "../lib/site";
+import { getLocale, translations } from "../lib/translations";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// The proxy forwards the locale from the URL; it defaults to "it".
+async function requestLocale() {
+  return getLocale((await headers()).get("x-locale") ?? undefined);
+}
 
-export const metadata: Metadata = {
-  title: "Hostaria Germoglio",
-  description: "Ristorante italiano a Verdello con cucina tradizionale e atmosfera famigliare.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = translations[await requestLocale()];
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: t.brand.name,
+      template: `%s | ${t.brand.name}`,
+    },
+    description: t.meta.home,
+    openGraph: {
+      type: "website",
+      siteName: t.brand.name,
+      images: [{ ...shareImage, alt: t.meta.imageAlt }],
+    },
+    twitter: { card: "summary_large_image", images: [shareImage.url] },
+  };
+}
 
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headersList = await headers();
-  const lang = headersList.get("x-locale") ?? "it";
+  const lang = await requestLocale();
 
   return (
     <html
       lang={lang}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[#f8f4ef] text-slate-900">
-        <PageLoader />
         {children}
-        <Footer />
+        <Footer locale={lang} />
       </body>
     </html>
   );
