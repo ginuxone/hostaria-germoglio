@@ -23,14 +23,15 @@ export const pagePaths = {
   home: "",
   menu: "menu",
   gallery: "gallery",
+  festa: "festa-in-cascina",
   staff: "staff",
   contact: "contact",
 } as const;
 
 export const translations: Record<Locale, {
   brand: { name: string; tagline: string };
-  meta: { home: string; menu: string; gallery: string; staff: string; contact: string; imageAlt: string };
-  nav: { home: string; menu: string; gallery: string; staff: string; contact: string };
+  meta: { home: string; menu: string; gallery: string; festa: string; staff: string; contact: string; imageAlt: string };
+  nav: { home: string; menu: string; gallery: string; festa: string; staff: string; contact: string };
   hero: { title: string; description: string; button: string };
   about: { heading: string; description: string };
   specialties: { heading: string; items: string[] };
@@ -63,6 +64,17 @@ export const translations: Record<Locale, {
     next: string;
     cta: string;
   };
+  festa: {
+    heading: string;
+    intro: string;
+    edition: string;
+    dateTba: string;
+    programHeading: string;
+    photosHeading: string;
+    pastHeading: string;
+    cta: string;
+    whatsappMessage: string;
+  };
 }> = {
   it: {
     brand: { name: "Hostaria Germoglio", tagline: "Cucina italiana a Verdello" },
@@ -70,11 +82,12 @@ export const translations: Record<Locale, {
       home: "Ristorante italo-peruviano a Verdello (BG): cucina bergamasca, pizze napoletane e sapori del Perù in un'atmosfera famigliare.",
       menu: "Il menu dell'Hostaria Germoglio a Verdello: casoncelli, risotto, lomo saltado, ají de gallina e dolci della casa.",
       gallery: "Foto dei piatti, della sala e della cucina dell'Hostaria Germoglio a Verdello: sapori italiani e peruviani.",
+      festa: "La Festa in cascina dell'Hostaria Germoglio a Verdello: ogni anno una giornata di festa tra cucina, musica e animali della fattoria.",
       staff: "Conosci Zoila, Jorge, Renato e Martina: la famiglia italo-peruviana e il team dell'Hostaria Germoglio.",
       contact: "Indirizzo, telefono e orari dell'Hostaria Germoglio, Via Solferino 53, Verdello (BG). Prenota su WhatsApp.",
       imageAlt: "La sala dell'Hostaria Germoglio a Verdello, con la chef Zoila",
     },
-    nav: { home: "Home", menu: "Menu", gallery: "Galleria", staff: "Staff", contact: "Contatti" },
+    nav: { home: "Home", menu: "Menu", gallery: "Galleria", festa: "Festa in cascina", staff: "Staff", contact: "Contatti" },
     hero: {
       title: "Sapori autentici, atmosfera accogliente",
       description: "Scopri piatti regionali preparati con ingredienti freschi e un servizio famigliare nel cuore di Verdello.",
@@ -172,6 +185,17 @@ export const translations: Record<Locale, {
       next: "Foto successiva",
       cta: "Ti è venuta fame?",
     },
+    festa: {
+      heading: "Festa in cascina",
+      intro: "Una volta all'anno la cascina che circonda l'Hostaria si riempie di amici, famiglie e bambini: una giornata di festa all'aria aperta tra buona cucina, musica e gli animali della fattoria.",
+      edition: "Edizione {year}",
+      dateTba: "Data in arrivo",
+      programHeading: "Cosa ti aspetta",
+      photosHeading: "Le foto",
+      pastHeading: "Le edizioni passate",
+      cta: "Vuoi partecipare? Scrivici su WhatsApp",
+      whatsappMessage: "Ciao! Vorrei informazioni sulla Festa in cascina.\nNumero di persone: \nNome: ",
+    },
   },
   es: {
     brand: { name: "Hostaria Germoglio", tagline: "Cocina italiana en Verdello" },
@@ -179,11 +203,12 @@ export const translations: Record<Locale, {
       home: "Restaurante ítalo-peruano en Verdello (BG): cocina bergamasca, pizzas napolitanas y sabores de Perú en un ambiente familiar.",
       menu: "El menú de la Hostaria Germoglio en Verdello: casoncelli, risotto, lomo saltado, ají de gallina y postres de la casa.",
       gallery: "Fotos de los platos, el comedor y la cocina de la Hostaria Germoglio en Verdello: sabores italianos y peruanos.",
+      festa: "La Festa in cascina de la Hostaria Germoglio en Verdello: cada año un día de fiesta con comida, música y los animales de la granja.",
       staff: "Conoce a Zoila, Jorge, Renato y Martina: la familia ítalo-peruana y el equipo de la Hostaria Germoglio.",
       contact: "Dirección, teléfono y horario de la Hostaria Germoglio, Via Solferino 53, Verdello (BG). Reserva por WhatsApp.",
       imageAlt: "El comedor de la Hostaria Germoglio en Verdello, con la chef Zoila",
     },
-    nav: { home: "Inicio", menu: "Menú", gallery: "Galería", staff: "Equipo", contact: "Contacto" },
+    nav: { home: "Inicio", menu: "Menú", gallery: "Galería", festa: "Festa in cascina", staff: "Equipo", contact: "Contacto" },
     hero: {
       title: "Sabores auténticos, ambiente acogedor",
       description: "Descubre platos regionales elaborados con ingredientes frescos y un servicio familiar en el corazón de Verdello.",
@@ -281,6 +306,17 @@ export const translations: Record<Locale, {
       next: "Foto siguiente",
       cta: "¿Se te abrió el apetito?",
     },
+    festa: {
+      heading: "Festa in cascina",
+      intro: "Una vez al año la granja que rodea la Hostaria se llena de amigos, familias y niños: un día de fiesta al aire libre con buena comida, música y los animales de la granja.",
+      edition: "Edición {year}",
+      dateTba: "Fecha por confirmar",
+      programHeading: "Qué te espera",
+      photosHeading: "Las fotos",
+      pastHeading: "Ediciones anteriores",
+      cta: "¿Quieres venir? Escríbenos por WhatsApp",
+      whatsappMessage: "¡Hola! Quisiera información sobre la Festa in cascina.\nNúmero de personas: \nNombre: ",
+    },
   },
   en: {
     brand: { name: "Hostaria Germoglio", tagline: "Italian dining in Verdello" },
@@ -288,11 +324,12 @@ export const translations: Record<Locale, {
       home: "Italian-Peruvian restaurant in Verdello (BG): Bergamo cuisine, Neapolitan pizzas and the flavors of Peru in a family atmosphere.",
       menu: "The Hostaria Germoglio menu in Verdello: casoncelli, risotto, lomo saltado, ají de gallina and house desserts.",
       gallery: "Photos of the dishes, dining room and kitchen at Hostaria Germoglio in Verdello: Italian and Peruvian flavors.",
+      festa: "Festa in cascina at Hostaria Germoglio in Verdello: a yearly farm party with food, music and the farm animals.",
       staff: "Meet Zoila, Jorge, Renato and Martina: the Italian-Peruvian family and team behind Hostaria Germoglio.",
       contact: "Address, phone and opening hours for Hostaria Germoglio, Via Solferino 53, Verdello (BG). Book a table on WhatsApp.",
       imageAlt: "The dining room at Hostaria Germoglio in Verdello, with chef Zoila",
     },
-    nav: { home: "Home", menu: "Menu", gallery: "Gallery", staff: "Team", contact: "Contact" },
+    nav: { home: "Home", menu: "Menu", gallery: "Gallery", festa: "Festa in cascina", staff: "Team", contact: "Contact" },
     hero: {
       title: "Authentic flavors, warm atmosphere",
       description: "Discover regional dishes made with fresh ingredients and family-style service in the heart of Verdello.",
@@ -389,6 +426,17 @@ export const translations: Record<Locale, {
       previous: "Previous photo",
       next: "Next photo",
       cta: "Feeling hungry?",
+    },
+    festa: {
+      heading: "Festa in cascina",
+      intro: "Once a year the farm around the Hostaria fills up with friends, families and children: a day-long outdoor party with good food, music and the farm animals.",
+      edition: "{year} edition",
+      dateTba: "Date coming soon",
+      programHeading: "What to expect",
+      photosHeading: "Photos",
+      pastHeading: "Past editions",
+      cta: "Want to join us? Message us on WhatsApp",
+      whatsappMessage: "Hi! I'd like some information about the Festa in cascina.\nNumber of people: \nName: ",
     },
   },
 };
