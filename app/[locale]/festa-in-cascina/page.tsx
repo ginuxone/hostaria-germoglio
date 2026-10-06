@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Navigation from "../../components/Navigation";
-import { type FestaEdition, festaEditions, formatEditionDate } from "../../../lib/festa";
+import {
+  type FestaEdition,
+  type FestaPhoto,
+  festaEditions,
+  formatEditionDate,
+  formatProgramDay,
+} from "../../../lib/festa";
 import { pageMetadata } from "../../../lib/metadata";
 import { whatsappUrl } from "../../../lib/site";
 import { type Locale, getLocale, translations } from "../../../lib/translations";
@@ -13,7 +19,63 @@ export function generateMetadata({ params }: FestaPageProps) {
   return pageMetadata(params, "festa");
 }
 
-function EditionPhotos({ edition, locale }: { edition: FestaEdition; locale: Locale }) {
+interface EditionProps {
+  edition: FestaEdition;
+  locale: Locale;
+}
+
+// Edition number and free entry, shown as small pills under the date.
+function EditionTags({ edition, locale }: EditionProps) {
+  const t = translations[locale].festa;
+  const tags = [
+    edition.number ? t.editionNumber.replace("{n}", String(edition.number)) : null,
+    edition.freeEntry ? t.freeEntry : null,
+  ].filter((tag): tag is string => tag !== null);
+  if (tags.length === 0) return null;
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span key={tag} className="rounded-full border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-700">
+          {tag}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+function EditionProgram({ edition, locale }: EditionProps) {
+  if (!edition.program?.length) return null;
+
+  return (
+    <div className="grid gap-6 md:grid-cols-3">
+      {edition.program.map((day) => (
+        <div key={day.date} className="space-y-3">
+          <h4 className="font-semibold text-amber-700">{formatProgramDay(day.date, locale)}</h4>
+          <ul className="space-y-3 text-sm">
+            {day.items.map((item) => (
+              <li key={`${item.time}-${item.activity.it}`} className="space-y-0.5">
+                <p className="font-semibold tabular-nums text-slate-900">{item.time}</p>
+                <p className="text-slate-600">{item.activity[locale]}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Links to the full-size file so the small print stays readable.
+function Flyer({ flyer, locale, sizes }: { flyer: FestaPhoto; locale: Locale; sizes: string }) {
+  return (
+    <a href={flyer.src} target="_blank" rel="noopener noreferrer" className="block overflow-hidden rounded-2xl border border-slate-200">
+      <Image src={flyer.src} alt={flyer.alt[locale]} width={flyer.width} height={flyer.height} sizes={sizes} className="h-auto w-full" />
+    </a>
+  );
+}
+
+function EditionPhotos({ edition, locale }: EditionProps) {
   if (edition.photos.length === 0) return null;
 
   return (
@@ -61,6 +123,7 @@ export default async function FestaPage({ params }: FestaPageProps) {
                 {formatEditionDate(featured, locale) ?? t.festa.dateTba}
               </h2>
               {featured.time && <p className="text-lg text-slate-600">{featured.time[locale]}</p>}
+              <EditionTags edition={featured} locale={locale} />
               <p className="text-slate-700">{featured.description[locale]}</p>
               <a
                 href={whatsappUrl(t.festa.whatsappMessage)}
@@ -83,6 +146,22 @@ export default async function FestaPage({ params }: FestaPageProps) {
               </ul>
             </div>
 
+            {featured.program && (
+              <div className="space-y-4 lg:col-span-2">
+                <h3 className="text-xl font-semibold text-slate-900">{t.festa.scheduleHeading}</h3>
+                <EditionProgram edition={featured} locale={locale} />
+              </div>
+            )}
+
+            {featured.flyer && (
+              <div className="space-y-4">
+                <h3 className="text-xl font-semibold text-slate-900">{t.festa.flyer}</h3>
+                <div className="max-w-sm">
+                  <Flyer flyer={featured.flyer} locale={locale} sizes="384px" />
+                </div>
+              </div>
+            )}
+
             {featured.photos.length > 0 && (
               <div className="space-y-4 lg:col-span-2">
                 <h3 className="text-xl font-semibold text-slate-900">{t.festa.photosHeading}</h3>
@@ -95,20 +174,41 @@ export default async function FestaPage({ params }: FestaPageProps) {
         {past.length > 0 && (
           <div className="mt-12 space-y-6">
             <h2 className="text-center text-3xl font-semibold tracking-tight text-slate-900">{t.festa.pastHeading}</h2>
-            <div className="grid gap-6 md:grid-cols-2">
-              {past.map((edition) => (
-                <article key={edition.year} className="space-y-4 rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/40">
+            {past.map((edition) => (
+              <article
+                key={edition.year}
+                className="grid gap-8 rounded-3xl bg-white p-8 shadow-lg shadow-slate-200/40 md:grid-cols-[1fr_16rem]"
+              >
+                <div className="space-y-4">
                   <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-700">
                     {editionLabel(edition.year)}
                   </p>
                   {edition.start && (
-                    <p className="text-lg font-semibold text-slate-900">{formatEditionDate(edition, locale)}</p>
+                    <p className="text-2xl font-semibold text-slate-900">{formatEditionDate(edition, locale)}</p>
                   )}
+                  <EditionTags edition={edition} locale={locale} />
                   <p className="text-slate-600">{edition.description[locale]}</p>
-                  <EditionPhotos edition={edition} locale={locale} />
-                </article>
-              ))}
-            </div>
+                  {edition.program && (
+                    <details className="rounded-2xl border border-slate-200 px-5 py-4">
+                      <summary className="cursor-pointer font-semibold text-slate-900">{t.festa.scheduleHeading}</summary>
+                      <div className="mt-4">
+                        <EditionProgram edition={edition} locale={locale} />
+                      </div>
+                    </details>
+                  )}
+                </div>
+                {edition.flyer && (
+                  <div className="max-w-64">
+                    <Flyer flyer={edition.flyer} locale={locale} sizes="256px" />
+                  </div>
+                )}
+                {edition.photos.length > 0 && (
+                  <div className="md:col-span-2">
+                    <EditionPhotos edition={edition} locale={locale} />
+                  </div>
+                )}
+              </article>
+            ))}
           </div>
         )}
       </section>

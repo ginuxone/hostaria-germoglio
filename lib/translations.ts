@@ -68,8 +68,12 @@ export const translations: Record<Locale, {
     heading: string;
     intro: string;
     edition: string;
+    editionNumber: string;
     dateTba: string;
+    freeEntry: string;
+    flyer: string;
     programHeading: string;
+    scheduleHeading: string;
     photosHeading: string;
     pastHeading: string;
     cta: string;
@@ -189,8 +193,12 @@ export const translations: Record<Locale, {
       heading: "Festa in cascina",
       intro: "Una volta all'anno la cascina che circonda l'Hostaria si riempie di amici, famiglie e bambini: una giornata di festa all'aria aperta tra buona cucina, musica e gli animali della fattoria.",
       edition: "Edizione {year}",
+      editionNumber: "{n}ª edizione",
       dateTba: "Data in arrivo",
+      freeEntry: "Ingresso gratuito",
+      flyer: "Il volantino",
       programHeading: "Cosa ti aspetta",
+      scheduleHeading: "Il programma",
       photosHeading: "Le foto",
       pastHeading: "Le edizioni passate",
       cta: "Vuoi partecipare? Scrivici su WhatsApp",
@@ -310,8 +318,12 @@ export const translations: Record<Locale, {
       heading: "Festa in cascina",
       intro: "Una vez al año la granja que rodea la Hostaria se llena de amigos, familias y niños: un día de fiesta al aire libre con buena comida, música y los animales de la granja.",
       edition: "Edición {year}",
+      editionNumber: "{n}.ª edición",
       dateTba: "Fecha por confirmar",
+      freeEntry: "Entrada gratuita",
+      flyer: "El cartel",
       programHeading: "Qué te espera",
+      scheduleHeading: "El programa",
       photosHeading: "Las fotos",
       pastHeading: "Ediciones anteriores",
       cta: "¿Quieres venir? Escríbenos por WhatsApp",
@@ -431,8 +443,12 @@ export const translations: Record<Locale, {
       heading: "Festa in cascina",
       intro: "Once a year the farm around the Hostaria fills up with friends, families and children: a day-long outdoor party with good food, music and the farm animals.",
       edition: "{year} edition",
+      editionNumber: "Edition no. {n}",
       dateTba: "Date coming soon",
+      freeEntry: "Free entry",
+      flyer: "The flyer",
       programHeading: "What to expect",
+      scheduleHeading: "Programme",
       photosHeading: "Photos",
       pastHeading: "Past editions",
       cta: "Want to join us? Message us on WhatsApp",
