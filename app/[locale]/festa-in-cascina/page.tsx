@@ -146,19 +146,22 @@ export default async function FestaPage({ params }: FestaPageProps) {
               </ul>
             </div>
 
-            {featured.program && (
-              <div className="space-y-4 lg:col-span-2">
-                <h3 className="text-xl font-semibold text-slate-900">{t.festa.scheduleHeading}</h3>
-                <EditionProgram edition={featured} locale={locale} />
-              </div>
-            )}
-
-            {featured.flyer && (
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-slate-900">{t.festa.flyer}</h3>
-                <div className="max-w-sm">
-                  <Flyer flyer={featured.flyer} locale={locale} sizes="384px" />
-                </div>
+            {(featured.program || featured.flyer) && (
+              <div className="grid gap-8 md:grid-cols-[1fr_16rem] lg:col-span-2">
+                {featured.program && (
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold text-slate-900">{t.festa.scheduleHeading}</h3>
+                    <EditionProgram edition={featured} locale={locale} />
+                  </div>
+                )}
+                {featured.flyer && (
+                  <div className="space-y-4 md:col-start-2">
+                    <h3 className="text-xl font-semibold text-slate-900">{t.festa.flyer}</h3>
+                    <div className="max-w-64">
+                      <Flyer flyer={featured.flyer} locale={locale} sizes="256px" />
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
