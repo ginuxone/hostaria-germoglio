@@ -201,8 +201,8 @@ export const translations: Record<Locale, {
       scheduleHeading: "Il programma",
       photosHeading: "Le foto",
       pastHeading: "Le edizioni passate",
-      cta: "Vuoi partecipare? Scrivici su WhatsApp",
-      whatsappMessage: "Ciao! Vorrei informazioni sulla Festa in cascina.\nNumero di persone: \nNome: ",
+      cta: "Info sulla prossima edizione su WhatsApp",
+      whatsappMessage: "Ciao! Vorrei informazioni sulla prossima edizione della Festa in cascina.\nNome: ",
     },
   },
   es: {
@@ -326,8 +326,8 @@ export const translations: Record<Locale, {
       scheduleHeading: "El programa",
       photosHeading: "Las fotos",
       pastHeading: "Ediciones anteriores",
-      cta: "¿Quieres venir? Escríbenos por WhatsApp",
-      whatsappMessage: "¡Hola! Quisiera información sobre la Festa in cascina.\nNúmero de personas: \nNombre: ",
+      cta: "Info sobre la próxima edición por WhatsApp",
+      whatsappMessage: "¡Hola! Quisiera información sobre la próxima edición de la Festa in cascina.\nNombre: ",
     },
   },
   en: {
@@ -451,8 +451,8 @@ export const translations: Record<Locale, {
       scheduleHeading: "Programme",
       photosHeading: "Photos",
       pastHeading: "Past editions",
-      cta: "Want to join us? Message us on WhatsApp",
-      whatsappMessage: "Hi! I'd like some information about the Festa in cascina.\nNumber of people: \nName: ",
+      cta: "Info on the next edition via WhatsApp",
+      whatsappMessage: "Hi! I'd like some information about the next Festa in cascina.\nName: ",
     },
   },
 };
