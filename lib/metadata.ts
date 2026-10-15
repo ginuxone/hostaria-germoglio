@@ -13,7 +13,7 @@ export async function pageMetadata(
   const title =
     page === "home"
       ? { absolute: `${t.brand.name} · ${t.brand.tagline}` }
-      : { menu: t.menu.heading, gallery: t.gallery.heading, staff: t.staff.heading, contact: t.contact.heading }[page];
+      : { menu: t.menu.heading, gallery: t.gallery.heading, festa: t.festa.heading, staff: t.staff.heading, contact: t.contact.heading }[page];
   const description = t.meta[page];
 
   return {
